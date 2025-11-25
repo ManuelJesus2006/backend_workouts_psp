@@ -7,10 +7,10 @@ const app = express();
 const PORT = process.env.PORT || 3000
 
 //For testing purposes
-app.get('/', (req, res) => {
-    res.send("<h1>Bienvenido, pruebe ha acceder a alguno de nuestros endpoints</h1>")
-})
-app.use(cors);
+// app.get('/', (req, res) => {
+//     res.send("<h1>Bienvenido, pruebe ha acceder a alguno de nuestros endpoints</h1>")
+// })
+app.use(cors());
 app.use(bodyParser.json())
 
 app.use('/api/v1/workouts', v1WorkoutRouter)
