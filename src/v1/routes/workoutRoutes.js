@@ -1,0 +1,18 @@
+const express = require('express')
+const workoutController = require('../../controllers/workoutController')
+const apicache = require('apicache');
+
+const router = express.Router();
+const cache = apicache.middleware;
+
+router.get('/', cache('1 minute'), workoutController.getAllWorkouts);
+
+router.get('/:workoutId', workoutController.getOneWorkout)
+
+router.post('/', workoutController.createNewWorkout)
+
+router.patch('/:workoutId', workoutController.updateOneWorkout)
+
+router.delete('/:workoutId', workoutController.deleteOneWorkout)
+
+module.exports = router;
